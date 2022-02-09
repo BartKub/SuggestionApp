@@ -24,7 +24,7 @@ public class MongoSuggestionData : ISuggestionData
 
       if (output is null)
       {
-         var result = await _suggestions.FindAsync(s => s.Archived == true);
+         var result = await _suggestions.FindAsync(s => s.Archived == false);
          output = result.ToList();
 
          _cache.Set(cacheName, output, TimeSpan.FromMinutes(1));
